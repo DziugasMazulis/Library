@@ -46,7 +46,7 @@ public class PatronsForLibrary {
     @Transactional
     public String setPatron() {
             patronToSet = patronsDAO.findOne(index);
-            patronToSet.getLibraryList().add(library);
+            patronToSet.getLibraries().add(library);
             return "books?faces-redirect=true&libraryId=" + this.library.getId();
     }
 }

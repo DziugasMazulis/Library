@@ -13,7 +13,7 @@
 
         <javaModelGenerator targetPackage="vu.lt.mybatis.model" targetProject="MAVEN" />
 
-        <sqlMapGenerator targetPackage="vu.lt.usecases.mybatis.xml" targetProject="MAVEN" />
+        <sqlMapGenerator targetPackage="vu.lt.mybatis.mybatis.xml" targetProject="MAVEN" />
         <javaClientGenerator type="XMLMAPPER" targetPackage="vu.lt.mybatis.dao" targetProject="MAVEN" />
 
 
@@ -22,6 +22,10 @@
             <ignoreColumn column="opt_lock_version" />
         </table>
         <table schema="public" tableName="book">
+            <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+            <ignoreColumn column="opt_lock_version" />
+        </table>
+        <table schema="public" tableName="patron">
             <generatedKey column="id" identity="true" sqlStatement="JDBC" />
             <ignoreColumn column="opt_lock_version" />
         </table>

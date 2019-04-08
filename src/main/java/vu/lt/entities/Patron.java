@@ -36,7 +36,7 @@ public class Patron implements Serializable {
             @JoinColumn(name = "PATRON_ID", referencedColumnName = "ID")}, inverseJoinColumns = {
             @JoinColumn(name = "LIBRARY_ID", referencedColumnName = "ID")})
     @ManyToMany
-    private List<Library> libraryList = new ArrayList<Library>();
+    private List<Library> libraries = new ArrayList<Library>();
 
     public Patron() {
     }

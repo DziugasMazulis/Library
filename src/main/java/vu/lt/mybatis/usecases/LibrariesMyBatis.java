@@ -1,4 +1,4 @@
-package vu.lt.usecases;
+package vu.lt.mybatis.usecases;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +13,7 @@ import java.util.List;
 
 @Model
 public class LibrariesMyBatis {
+
     @Inject
     private LibraryMapper libraryMapper;
 
@@ -27,13 +28,13 @@ public class LibrariesMyBatis {
         this.loadAllLibraries();
     }
 
-    private void loadAllLibraries() {
-        this.allLibraries = libraryMapper.selectAll();
-    }
-
     @Transactional
     public String createLibrary() {
         libraryMapper.insert(libraryToCreate);
-        return "/myBatis/libraries?faces-redirect=true";
+        return "/mybatis/libraries?faces-redirect=true";
+    }
+
+    private void loadAllLibraries() {
+        this.allLibraries = libraryMapper.selectAll();
     }
 }

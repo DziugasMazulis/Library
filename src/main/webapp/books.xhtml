@@ -22,7 +22,7 @@
 
     <h3>Patrons registered to #{booksForLibrary.library.name} library:</h3>
     <ol>
-        <ui:repeat value="#{patronsForLibrary.library.patronList}" var="patron">
+        <ui:repeat value="#{patronsForLibrary.library.patrons}" var="patron">
             <li>#{patron.name}</li>
         </ui:repeat>
     </ol>

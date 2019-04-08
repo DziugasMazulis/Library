@@ -17,11 +17,11 @@ public class Libraries {
     @Inject
     private LibrariesDAO librariesDAO;
 
-    @Getter @Setter
-    private Library libraryToCreate = new Library();
-
     @Getter
     private List<Library> allLibraries;
+
+    @Getter @Setter
+    private Library libraryToCreate = new Library();
 
     @PostConstruct
     public void init(){
