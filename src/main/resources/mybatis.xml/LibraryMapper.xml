@@ -5,6 +5,8 @@
   <resultMap id="BaseResultMap" type="vu.lt.mybatis.model.Library">
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <collection property="books" javaType="ArrayList" column="id" ofType="Book" select="selectBooksByLibraryId"/>
+    <collection property="patrons" javaType="ArrayList" column="id" ofType="Patron" select="selectPatronsForLibrary"/>
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from PUBLIC.LIBRARY
@@ -27,5 +29,18 @@
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, NAME
     from PUBLIC.LIBRARY
+  </select>
+  <select id="selectBooksByLibraryId" resultType="Book">
+    select ID, NAME
+    from PUBLIC.BOOK
+    where LIBRARY_ID= #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectPatronsForLibrary" resultType="Patron">
+    SELECT
+        p.ID,
+        p.NAME
+    FROM public.patron p
+        JOIN PUBLIC.PATRON_LIBRARY pl on p.ID = pl.PATRON_ID
+    WHERE pl.LIBRARY_ID = #{id,jdbcType=INTEGER}
   </select>
 </mapper>

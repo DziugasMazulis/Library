@@ -1,6 +1,5 @@
 package vu.lt.mybatis.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Library {

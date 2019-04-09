@@ -13,7 +13,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Map;
 
 @Model
@@ -41,14 +40,8 @@ public class BooksForLibraryMyBatis implements Serializable {
 
     @Transactional
     public String createBook() {
-        bookToCreate.setLibrary(this.library);
+        bookToCreate.setLibraryId(this.library.getId());
         bookMapper.insert(bookToCreate);
-
-        List<Book> temp = library.getBooks();
-        temp.add(bookToCreate);
-        library.setBooks(temp);
-
-        libraryMapper.updateByPrimaryKey(this.library);
-        return "/myBatis/books?faces-redirect=true&libraryId=" + this.library.getId();
+        return "/mybatis/books?faces-redirect=true&libraryId=" + this.library.getId();
     }
 }

@@ -6,7 +6,9 @@ public class Book {
 
     private String name;
 
-    private Library library;
+    private Integer libraryId;
+
+    //private Library library;
 
     public Integer getId() {
         return id;
@@ -24,11 +26,19 @@ public class Book {
         this.name = name;
     }
 
-    public Library getLibrary() {
+    public Integer getLibraryId() {
+        return libraryId;
+    }
+
+    public void setLibraryId(Integer libraryId) {
+        this.libraryId = libraryId;
+    }
+
+    /*public Library getLibrary() {
         return library;
     }
 
     public void setLibrary(Library library) {
         this.library = library;
-    }
+    }*/
 }
