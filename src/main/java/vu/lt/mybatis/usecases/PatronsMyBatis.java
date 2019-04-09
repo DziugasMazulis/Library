@@ -1,9 +1,9 @@
-package vu.lt.usecases;
+package vu.lt.mybatis.usecases;
 
 import lombok.Getter;
 import lombok.Setter;
-import vu.lt.entities.Patron;
-import vu.lt.persistence.PatronsDAO;
+import vu.lt.mybatis.dao.PatronMapper;
+import vu.lt.mybatis.model.Patron;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -12,17 +12,17 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Model
-public class Patrons {
+public class PatronsMyBatis {
 
     @Inject
-    private PatronsDAO patronsDAO;
+    private PatronMapper patronMapper;
+
+    @Getter
+    private List<Patron> allPatrons;
 
     @Getter
     @Setter
     private Patron patronToCreate = new Patron();
-
-    @Getter
-    private List<Patron> allPatrons;
 
     @PostConstruct
     public void init(){
@@ -31,11 +31,11 @@ public class Patrons {
 
     @Transactional
     public String createPatron(){
-        this.patronsDAO.persist(patronToCreate);
-        return "index?faces-redirect=true";
+        this.patronMapper.insert(patronToCreate);
+        return "/mybatis/libraries?faces-redirect=true";
     }
 
     private void loadAllPatrons(){
-        this.allPatrons = patronsDAO.loadAll();
+        this.allPatrons = patronMapper.selectAll();
     }
 }

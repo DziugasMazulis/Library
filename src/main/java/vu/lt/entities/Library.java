@@ -29,8 +29,8 @@ public class Library {
     @OneToMany(mappedBy = "library")
     private List<Book> books = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "libraryList")
-    private List<Patron> patronList = new ArrayList<>();
+    @ManyToMany(mappedBy = "libraries")
+    private List<Patron> patrons = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

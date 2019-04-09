@@ -6,6 +6,8 @@
     <typeAliases>
         <typeAlias type="vu.lt.mybatis.model.Library" alias="Library"/>
         <typeAlias type="vu.lt.mybatis.model.Book" alias="Book"/>
+        <typeAlias type="vu.lt.mybatis.model.Patron" alias="Patron"/>
+        <typeAlias type="vu.lt.mybatis.model.PatronLibrary" alias="PatronLibrary"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -18,5 +20,7 @@
     <mappers>
         <mapper resource="mybatis.xml/LibraryMapper.xml"/>
         <mapper resource="mybatis.xml/BookMapper.xml"/>
+        <mapper resource="mybatis.xml/PatronMapper.xml"/>
+        <mapper resource="mybatis.xml/PatronLibraryMapper.xml"/>
     </mappers>
 </configuration>
