@@ -10,7 +10,9 @@
     <h2>Books stored in #{booksForLibrary.library.name} library:</h2>
     <ol>
         <ui:repeat value="#{booksForLibrary.library.books}" var="book">
-            <li>#{book.name}</li>
+            <li>
+                <h:link value="#{book.name} #{book.ISBN}" outcome="bookDetails?bookId=#{book.id}" />
+            </li>
         </ui:repeat>
     </ol>
     <h:form>
