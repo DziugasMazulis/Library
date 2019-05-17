@@ -28,6 +28,13 @@ public class Book implements Serializable {
     @JoinColumn(name="LIBRARY_ID")
     private Library library;
 
+    @Column(name = "ISBN")
+    private Integer ISBN;
+
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     public Book() {
     }
 

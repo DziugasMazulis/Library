@@ -17,4 +17,12 @@ public class BooksDAO {
     public void persist(Book book){
         this.em.persist(book);
     }
+
+    public Book findOne(Integer id){
+        return em.find(Book.class, id);
+    }
+
+    public Book update(Book book){
+        return em.merge(book);
+    }
 }
