@@ -14,6 +14,7 @@ import vu.lt.entities.Book;
 import vu.lt.entities.Library;
 import vu.lt.persistence.BooksDAO;
 import vu.lt.persistence.LibrariesDAO;
+import vu.lt.interceptors.LoggedInvocation;
 
 @Model
 public class BooksForLibrary implements Serializable {
@@ -38,6 +39,7 @@ public class BooksForLibrary implements Serializable {
         this.library = librariesDAO.findOne(libraryId);
     }
 
+    @LoggedInvocation
     @Transactional
     public String createBook() {
         bookToCreate.setLibrary(this.library);

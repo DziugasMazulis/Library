@@ -16,6 +16,12 @@
         </h:commandButton>
         <h:outputText value="Opt lock e. Click agian to override" rendered="#{param['error'] == 'optimistic-lock-exception'}" />
     </h:form>
+    <h:form>
+        <h:outputText value="#{generateISBN.ISBNGenerationStatus}" />
+        <h:commandButton value="Generate book ISBN?" disabled="#{generateISBN.ISBNGenerationRunning}" action="#{generateISBN.generateISBN()}">
+            <f:param name="bookId" value="#{updateBookDetails.book.id}" />
+        </h:commandButton>
+    </h:form>
     <h:link outcome="index" value="Back to home page"/>
 </h:body>
 </html>

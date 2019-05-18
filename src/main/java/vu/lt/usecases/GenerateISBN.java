@@ -1,8 +1,10 @@
 package vu.lt.usecases;
 
+import vu.lt.interceptors.LoggedInvocation;
 import vu.lt.services.ISBNGenerator;
 
-import javax.faces.bean.SessionScoped;
+
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,6 +21,7 @@ public class GenerateISBN implements Serializable {
 
     private Future<Integer> isbnGenerationTask = null;
 
+    @LoggedInvocation
     public String generateISBN() {
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
@@ -36,6 +39,6 @@ public class GenerateISBN implements Serializable {
         } else if (isISBNGenerationRunning()){
             return "Task in progress, please wait";
         }
-        return "ISBN: " + isbnGenerationTask.get();
+        return "Generated ISBN: " + isbnGenerationTask.get();
     }
 }

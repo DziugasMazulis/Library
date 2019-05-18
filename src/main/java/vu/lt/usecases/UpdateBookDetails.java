@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import vu.lt.entities.Book;
 import vu.lt.persistence.BooksDAO;
+import vu.lt.interceptors.LoggedInvocation;
 
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
@@ -35,6 +36,7 @@ public class UpdateBookDetails implements Serializable {
     }
 
     @Transactional
+    @LoggedInvocation
     public String updateBookISBN() {
         try{
             booksDAO.update(this.book);
