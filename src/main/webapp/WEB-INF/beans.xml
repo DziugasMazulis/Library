@@ -8,5 +8,8 @@
 
     <interceptors>
         <class>vu.lt.interceptors.MethodLogger</class>
-    </interceptors>
+    </interceptors><!---->
+    <!--<alternatives>
+        <class>vu.lt.alternatives.ISBNGeneratorAlt</class>
+    </alternatives>-->
 </beans>

@@ -1,28 +1,25 @@
-package vu.lt.services;
+package vu.lt.alternatives;
 
 import org.apache.deltaspike.core.api.future.Futureable;
-import vu.lt.alternatives.IISBNGenerator;
+import vu.lt.services.ISBNGenerator;
 
 import javax.ejb.AsyncResult;
-import javax.ejb.Asynchronous;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Default;
+import javax.enterprise.inject.Alternative;
 import java.io.Serializable;
-import java.util.Random;
 import java.util.concurrent.Future;
 
 @ApplicationScoped
-@Default
-@Asynchronous
-public class ISBNGenerator implements Serializable, IISBNGenerator {
+@Alternative
+public class ISBNGeneratorAlt extends ISBNGenerator implements Serializable  {
 
     @Futureable
-    public Future<Integer> generateISBN(){
+    public Future<Integer> generateISBN() {
         try{
             Thread.sleep(5000);
         } catch (InterruptedException e) {
         }
-        final Integer ISBN = new Random().nextInt(9999);
+        final Integer ISBN = -1;
         return new AsyncResult<>(ISBN);
     }
 }
