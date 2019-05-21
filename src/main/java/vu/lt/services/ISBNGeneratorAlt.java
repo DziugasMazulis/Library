@@ -1,4 +1,4 @@
-package vu.lt.alternatives;
+package vu.lt.services;
 
 import org.apache.deltaspike.core.api.future.Futureable;
 
