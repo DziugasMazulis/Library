@@ -1,5 +1,6 @@
 package vu.lt.usecases;
 
+import vu.lt.alternatives.IISBNGenerator;
 import vu.lt.interceptors.LoggedInvocation;
 import vu.lt.services.ISBNGenerator;
 
@@ -17,7 +18,7 @@ import java.util.concurrent.Future;
 @Named
 public class GenerateISBN implements Serializable {
     @Inject
-    ISBNGenerator isbnGenerator;
+    IISBNGenerator isbnGenerator;
 
     private Future<Integer> isbnGenerationTask = null;
 
