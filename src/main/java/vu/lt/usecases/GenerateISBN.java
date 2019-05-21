@@ -1,9 +1,7 @@
 package vu.lt.usecases;
 
-import vu.lt.alternatives.IISBNGenerator;
 import vu.lt.interceptors.LoggedInvocation;
-import vu.lt.services.ISBNGenerator;
-
+import vu.lt.services.IISBNGenerator;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -23,7 +21,7 @@ public class GenerateISBN implements Serializable {
     private Future<Integer> isbnGenerationTask = null;
 
     @LoggedInvocation
-    public String generateISBN() {
+    public String generateISBN() throws ExecutionException, InterruptedException {
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         isbnGenerationTask = isbnGenerator.generateISBN();

@@ -10,6 +10,9 @@
         <class>vu.lt.interceptors.MethodLogger</class>
     </interceptors><!---->
     <!--<alternatives>
-        <class>vu.lt.alternatives.ISBNGeneratorAlt</class>
+        <class>vu.lt.services.ISBNGeneratorAlt</class>
     </alternatives>-->
+    <decorators>
+        <class>vu.lt.services.ISBNGeneratorDecorator</class>
+    </decorators><!---->
 </beans>
