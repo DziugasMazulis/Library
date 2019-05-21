@@ -1,7 +1,6 @@
 package vu.lt.alternatives;
 
 import org.apache.deltaspike.core.api.future.Futureable;
-import vu.lt.services.ISBNGenerator;
 
 import javax.ejb.AsyncResult;
 import javax.enterprise.context.ApplicationScoped;
@@ -11,7 +10,7 @@ import java.util.concurrent.Future;
 
 @ApplicationScoped
 @Alternative
-public class ISBNGeneratorAlt extends ISBNGenerator implements Serializable  {
+public class ISBNGeneratorAlt implements IISBNGenerator, Serializable {
 
     @Futureable
     public Future<Integer> generateISBN() {
